@@ -994,11 +994,11 @@ body {
 }
 
 .fade-in {
-  opacity: 0; /* Bắt đầu với độ mờ 0 */
-  transition: opacity 2s ease-in; /* Thời gian hiệu ứng là 2 giây */
+  opacity: 0;
+  transition: opacity 2s ease-in;
 }
 .fade-in.visible {
-  opacity: 1; /* Độ mờ 1 khi thêm class visible */
+  opacity: 1; 
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -6,4 +6,4 @@ onload = () => {
   };
   setTimeout(() => {
     document.getElementById('text').classList.add('visible');
-}, 1000);
+}, 2000);
