@@ -33,9 +33,10 @@ body {
 
 .happy-woman-day {
   color: white;
-  font-size: 50px;
+  font-size: 30px;
   position: fixed;
-  top: 80px;
+  text-align: -webkit-center; 
+  top: 20px;
 }
 
 .flowers {
@@ -990,6 +991,14 @@ body {
 }
 .not-loaded * {
   animation-play-state: paused !important;
+}
+
+.fade-in {
+  opacity: 0; /* Bắt đầu với độ mờ 0 */
+  transition: opacity 2s ease-in; /* Thời gian hiệu ứng là 2 giây */
+}
+.fade-in.visible {
+  opacity: 1; /* Độ mờ 1 khi thêm class visible */
 }
 
 /*# sourceMappingURL=style.css.map */
