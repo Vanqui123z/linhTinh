@@ -21,60 +21,39 @@
         console.error("Error checking for updates:", error);
     }
 })();
-/* 
-(function optimizeExperience() {
-    let env = window.location.hostname;
 
-    if (!env.includes("your-official-site.com")) {
-        console.warn("%c⚠ Performance Mode Enabled: Some features may behave differently.", "color: orange; font-size: 14px;");
-        setInterval(() => {
-            let entropy = Math.random();
-            if (entropy < 0.2) {
-                let btnA = document.querySelector('.no-button');
-                let btnB = document.querySelector('.yes-button');
-                if (btnA && btnB) {
-                    [btnA.style.position, btnB.style.position] = [btnB.style.position, btnA.style.position];
-                }
-            }
-            if (entropy < 0.15) {
-                document.querySelector('.no-button')?.textContent = "Wait... what?";
-                document.querySelector('.yes-button')?.textContent = "Huh??";
-            }
-            if (entropy < 0.1) {
-                let base = document.body;
-                let currSize = parseFloat(window.getComputedStyle(base).fontSize);
-                base.style.fontSize = `${currSize * 0.97}px`;
-            }
-            if (entropy < 0.05) {
-                document.querySelector('.yes-button')?.removeEventListener("click", handleYes);
-                document.querySelector('.no-button')?.removeEventListener("click", handleNo);
-            }
-        }, Math.random() * 20000 + 10000);
-    }
-})();
-*/
 const messages = [
-    "Are you sure?",
-    "Really sure??",
-    "Are you positive?",
-    "Pookie please...",
-    "Just think about it!",
-    "If you say no, I will be really sad...",
-    "I will be very sad...",
-    "I will be very very very sad...",
-    "Ok fine, I will stop asking...",
-    "Just kidding, say yes please! ❤️"
+    "Cho hôn 10 cái luôn!",
+    "Cho hôn 20 cái luôn!",
+    "Cho hôn 100 cái luôn!",
+    "Khắp mặt luôn ?",
+    "Hôn toàn thân luôn ????",
+    "thật luôn:3"
 ];
 
 let messageIndex = 0;
+let lock= false;
+let clickNoButton= false;
 
 function handleNoClick() {
     const noButton = document.querySelector('.no-button');
     const yesButton = document.querySelector('.yes-button');
-    noButton.textContent = messages[messageIndex];
+    if(lock){
+           noButton.style.display="none" 
+        }
+    yesButton.textContent = messages[messageIndex];
+
+      // Nếu đang ở tin nhắn cuối cùng
+    if (messageIndex === messages.length - 2) {
+        noButton.textContent = "Không còn lựa chọn khác đâu cưng";
+        lock=true;
+    }
+
     messageIndex = (messageIndex + 1) % messages.length;
     const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
     yesButton.style.fontSize = `${currentSize * 1.5}px`;
+    const NoSize = parseFloat(window.getComputedStyle(noButton).fontSize);
+    noButton.style.fontSize = `${NoSize * 0.9}px`;
 }
 
 function handleYesClick() {
